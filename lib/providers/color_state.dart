@@ -26,5 +26,14 @@ class ColorState with ChangeNotifier{
   void _resetAll() {
     _colors.updateAll((key, value) => false);
   }
- 
+
+  Color? get selectedOption {
+    for (Color color in _colors.keys) {
+      if (_colors[color]) {
+        return color;
+      }
+    }
+    return null;
+  }
+
 }

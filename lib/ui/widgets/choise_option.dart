@@ -34,14 +34,14 @@ class _ChoiseOptionState extends State<ChoiseOption> {
         setState(() { }); 
       },
       child: Card( 
-        color: widget.state.categoryOptions[widget.label]!["boxColor"],
+        color: widget.state.options[widget.label]!["boxColor"],
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
             side: const BorderSide(width: 1, color: ColorConsts.grey)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           child: Text(widget.label, style: TextStyle(
-            color: widget.state.categoryOptions[widget.label]!["textColor"],
+            color: widget.state.options[widget.label]!["textColor"],
             fontSize: widget.fontSize,
             fontWeight: FontWeight.w500
             ),

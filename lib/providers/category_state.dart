@@ -21,7 +21,7 @@ class CategoryState with ChangeNotifier {
     },
   };
 
-  Map get categoryOptions => _categoryOptions;
+  Map get options => _categoryOptions;
 
   void changeColor(String option) {
     _resetAll(); 

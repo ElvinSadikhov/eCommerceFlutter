@@ -25,7 +25,7 @@ class SizeState with ChangeNotifier {
     },
   };
 
-  Map get categoryOptions => _sizeOptions;
+  Map get options => _sizeOptions;
 
   void changeColor(String option) {
     _resetAll(); 
@@ -41,5 +41,14 @@ class SizeState with ChangeNotifier {
       _sizeOptions[option]!["textColor"] = ColorConsts.black;
     }
   } 
+
+  String? get selectedOption {
+    for (String size in _sizeOptions.keys) { 
+      if (_sizeOptions[size]!["boxColor"] == ColorConsts.orange) {
+        return size;
+      }
+    }
+    return null;
+  }
 }
  

@@ -3,18 +3,22 @@
 import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:e_commerce_app/consts/padding_consts.dart';
 import 'package:e_commerce_app/consts/size_consts.dart';
+import 'package:e_commerce_app/providers/cart_state.dart';
+import 'package:e_commerce_app/providers/color_state.dart';
+import 'package:e_commerce_app/providers/size_state.dart';
+import 'package:e_commerce_app/utils/product.dart';
 import 'package:e_commerce_app/data/strings.dart';
-import 'package:e_commerce_app/providers/favourite_state.dart';
-import 'package:e_commerce_app/ui/screens/checkout_screen.dart';
+import 'package:e_commerce_app/providers/favourite_state.dart'; 
 import 'package:e_commerce_app/ui/widgets/back_button.dart' as custom; 
 import 'package:e_commerce_app/ui/widgets/color_box.dart'; 
 import 'package:e_commerce_app/ui/widgets/size_option.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';
+import 'package:e_commerce_app/utils/purchase.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SelectionScreen extends StatelessWidget {
-  final Map<String, String> product;
+  final Product product;
   final List<Color> colors = [ColorConsts.white,
               ColorConsts.black, 
               ColorConsts.indigo,
@@ -22,7 +26,7 @@ class SelectionScreen extends StatelessWidget {
               ColorConsts.lightGreen, 
               ColorConsts.brown,
               ColorConsts.red];
-  final double heightOfBottomBar = 90;
+  final double heightOfBottomBar = 90; 
   
   SelectionScreen({ Key? key, required this.product }) : super(key: key);
 
@@ -65,7 +69,7 @@ class SelectionScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            "${this.product["type"]} ${this.product["title"]}",
+                            "${this.product.style} ${this.product.title}",
                             style: const TextStyle(
                               color: ColorConsts.black,
                               fontSize: 24,
@@ -75,7 +79,7 @@ class SelectionScreen extends StatelessWidget {
                           WidgetMethods.verticalSpace(15),
                           Text.rich(
                             TextSpan(
-                              text: product["price"]!.substring(0, 2),
+                              text: product.price.substring(0, 2),
                               style: const TextStyle(
                               color: ColorConsts.orange,
                               fontSize: 18,
@@ -83,7 +87,7 @@ class SelectionScreen extends StatelessWidget {
                             ),
                             children: [
                               TextSpan(
-                                text: product["price"]!.substring(2),
+                                text: product.price.substring(2),
                                 style: const TextStyle(
                                   color: ColorConsts.black,
                                   fontSize: 21,
@@ -98,7 +102,7 @@ class SelectionScreen extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
-                                this.product["image"]!,
+                                this.product.image,
                                 fit: BoxFit.cover,
                                 height: sizeOfScreen.height * 0.5,
                                 width: sizeOfScreen.width,
@@ -171,7 +175,7 @@ class SelectionScreen extends StatelessWidget {
                           children: [
                             Text.rich(
                               TextSpan(
-                                text: product["price"]!.substring(0, 2),
+                                text: product.price.substring(0, 2),
                                 style: const TextStyle(
                                 color: ColorConsts.orange,
                                 fontSize: 18,
@@ -179,7 +183,7 @@ class SelectionScreen extends StatelessWidget {
                               ),
                               children: [
                                 TextSpan(
-                                  text: product["price"]!.substring(2),
+                                  text: product.price.substring(2),
                                   style: const TextStyle(
                                     color: ColorConsts.black,
                                     fontSize: 21,
@@ -189,31 +193,41 @@ class SelectionScreen extends StatelessWidget {
                               ],
                               ), 
                             ), 
-                            GestureDetector(
-                              onTap: () { 
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => const CheckoutScreen()),
-                                ); 
-                              },
-                              child: ClipRRect( 
-                                borderRadius: BorderRadius.circular(10),
-                                child: Container(
-                                  color: ColorConsts.black,
-                                  child: const Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                                    child: Text(
-                                      Strings.addToCart, 
-                                      style: TextStyle(
-                                        color: ColorConsts.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400
+                            Consumer<CartState>(
+                              builder: (context, CartState cartState, _) {
+                                return  GestureDetector(
+                                  onTap: () { 
+                                    cartState.addToCart(
+                                      Purchase(
+                                        product: product, 
+                                        size: context.read<SizeState>().selectedOption!, 
+                                        color: context.read<ColorState>().selectedOption!,
+                                        count: 1  
+                                      )
+                                    );
+                                    debugPrint(cartState.purchases.toString());
+                                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Product has been added to the cart!")));
+                                  },
+                                  child:  ClipRRect( 
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      color: ColorConsts.black,
+                                      child: const Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                                        child: Text(
+                                          Strings.addToCart, 
+                                          style: TextStyle(
+                                            color: ColorConsts.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
+                                    ), 
+                                  ), 
+                                );
+                              }
+                            )   
                           ],
                         ),
                       ),

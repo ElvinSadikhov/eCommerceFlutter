@@ -1,4 +1,4 @@
-class Strings {
+class Strings {  
 
   Strings._();
 
@@ -13,5 +13,13 @@ class Strings {
   static const String favouriteProducts = "Favourite Products";
   
   static const String myCart = "My Cart";
+  static const String size = "Size:";
+
+  static const String euro = "€";
+  static const String subTotal = "Sub Total";
+  static const String shipping = "Shipping"; 
+  static const String shippingCost = "€ 10.0";
+  static const String total = "Total"; 
+  static const String checkout = "Checkout"; 
   
 }

@@ -5,13 +5,15 @@ import 'package:e_commerce_app/consts/padding_consts.dart';
 import 'package:e_commerce_app/consts/size_consts.dart';
 import 'package:e_commerce_app/data/products.dart';
 import 'package:e_commerce_app/data/strings.dart';
-import 'package:e_commerce_app/ui/screens/checkout_screen.dart'; 
+import 'package:e_commerce_app/providers/cart_state.dart';
+import 'package:e_commerce_app/ui/screens/cart_screen.dart';  
 import 'package:e_commerce_app/ui/screens/favourites_screen.dart'; 
 import 'package:e_commerce_app/ui/widgets/carousel.dart';
 import 'package:e_commerce_app/ui/widgets/category_option.dart'; 
 import 'package:e_commerce_app/ui/widgets/product_item.dart'; 
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart'; 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget { 
 
@@ -19,7 +21,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size sizeOfScreen = MediaQuery.of(context).size;
+    Size sizeOfScreen = MediaQuery.of(context).size; 
 
     return Scaffold(
       body: Padding(
@@ -46,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const CheckoutScreen()),
+                          MaterialPageRoute(builder: (context) => const CartScreen()),
                         );
                       },
                       child: const Icon(Icons.shopping_bag_sharp, size: SizeConsts.kDefaultIconSize)

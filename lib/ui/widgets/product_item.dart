@@ -1,7 +1,8 @@
 // ignore_for_file: unnecessary_this
  
 import 'package:e_commerce_app/consts/color_consts.dart';
-import 'package:e_commerce_app/consts/size_consts.dart'; 
+import 'package:e_commerce_app/consts/size_consts.dart';
+import 'package:e_commerce_app/utils/product.dart'; 
 import 'package:e_commerce_app/providers/favourite_state.dart'; 
 import 'package:e_commerce_app/ui/screens/selection_screen.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';
@@ -13,7 +14,7 @@ class ProductItem extends StatefulWidget {
   final double height;
   final double width;  
   final double iconSize;
-  final Map<String, String> product; 
+  final Product product; 
   
   const ProductItem({ Key? key, 
     required this.height, 
@@ -47,7 +48,7 @@ class _ProductItemState extends State<ProductItem> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
-                  widget.product["image"]!,
+                  widget.product.image,
                   fit: BoxFit.cover,
                   height: widget.height,
                   width: widget.width,
@@ -55,7 +56,7 @@ class _ProductItemState extends State<ProductItem> {
               ),
               WidgetMethods.verticalSpace(15),
               Text(
-                "${widget.product["type"]} ${widget.product["title"]}",
+                "${widget.product.style} ${widget.product.title}",
                 style: const TextStyle(
                   color: ColorConsts.black,
                   fontWeight: FontWeight.w500,
@@ -65,7 +66,7 @@ class _ProductItemState extends State<ProductItem> {
               WidgetMethods.verticalSpace(5),
               Text.rich(
                  TextSpan(
-                   text: widget.product["price"]!.substring(0, 2),
+                   text: widget.product.price.substring(0, 2),
                    style: const TextStyle(
                     color: ColorConsts.orange,
                     fontSize: 14,
@@ -73,7 +74,7 @@ class _ProductItemState extends State<ProductItem> {
                   ),
                   children: [
                     TextSpan(
-                      text: widget.product["price"]!.substring(2),
+                      text: widget.product.price.substring(2),
                       style: const TextStyle(
                         color: ColorConsts.black,
                         fontSize: 16,
