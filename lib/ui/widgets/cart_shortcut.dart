@@ -35,7 +35,7 @@ class CartShortcut extends StatelessWidget {
               width: sizeOfScreen.width / 5
             ),
           ),
-          WidgetMethods.horizontalSpace(5),
+          WidgetMethods.horizontalSpace(10),
           Column( 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

@@ -1,9 +1,7 @@
 import 'dart:math';
  
-import 'package:e_commerce_app/data/products.dart';
-import 'package:e_commerce_app/ui/screens/selection_screen.dart';
-import 'package:e_commerce_app/ui/widgets/product_item.dart';
-import 'package:e_commerce_app/utils/helpers/product.dart';
+import 'package:e_commerce_app/data/products.dart'; 
+import 'package:e_commerce_app/ui/widgets/product_item.dart'; 
 import 'package:flutter/material.dart';
 
 class CarouselNew extends StatefulWidget {
@@ -15,7 +13,7 @@ class CarouselNew extends StatefulWidget {
 
 class _CarouselNewState extends State<CarouselNew> {
   late PageController _pageController;
-  final int _currentPage = 0;
+  final int _currentPage = 1;
 
   @override
   void initState() { 
