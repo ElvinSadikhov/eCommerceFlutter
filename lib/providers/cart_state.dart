@@ -40,6 +40,11 @@ class CartState with ChangeNotifier {
   }
   
   List<Purchase> get purchases => _purchases; 
+
+
+  void resetState() {
+    _purchases.clear();
+  }
   
 }
   

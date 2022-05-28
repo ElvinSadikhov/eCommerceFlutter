@@ -7,6 +7,7 @@ import 'package:e_commerce_app/ui/screens/checkout_screen.dart';
 import 'package:e_commerce_app/ui/widgets/cart_list.dart';
 import 'package:e_commerce_app/ui/widgets/dashed_lines.dart';
 import 'package:e_commerce_app/ui/widgets/price_widget.dart';
+import 'package:e_commerce_app/utils/helpers/total_price.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce_app/ui/widgets/back_button.dart' as custom;
@@ -63,7 +64,7 @@ class CartScreen extends StatelessWidget {
                       const DashedLines(), 
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
-                        child: PriceWidget(title: Strings.total, price: getTotal(cartState.getTotalPrice(), Strings.shippingCost)),
+                        child: PriceWidget(title: Strings.total, price: TotalPrice.getTotal(cartState.getTotalPrice(), Strings.shippingCost)),
                       ), 
                       GestureDetector(
                         onTap: () {
@@ -107,6 +108,4 @@ class CartScreen extends StatelessWidget {
   }
 }
 
-String getTotal(String pr1, String pr2) {
-  return "${Strings.euro} ${double.parse(pr1.substring(2)) + double.parse(pr2.substring(2))}";
-}
+ 

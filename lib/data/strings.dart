@@ -36,5 +36,6 @@ class Strings {
   static const String applePayLogoAsset = "assets/images/apple_pay_logo.png";
   static const String masterCardLogoAsset = "assets/images/master_card_logo.png";
   static const String vPayLogoAsset = "assets/images/v_pay_logo.png";
+  static const String payNow = "Pay Now";
  
 }
