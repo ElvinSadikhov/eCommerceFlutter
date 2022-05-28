@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:e_commerce_app/consts/size_consts.dart';
+import 'package:carousel_slider/carousel_slider.dart'; 
 import 'package:e_commerce_app/data/products.dart';
 import 'package:e_commerce_app/ui/widgets/product_item.dart';
 import 'package:flutter/material.dart'; 
