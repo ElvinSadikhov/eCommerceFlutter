@@ -34,80 +34,84 @@ class _ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) { 
 
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SelectionScreen(product: widget.product)),
-        );
-      },
-      child: Stack(
-        children: [
-          Column(
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SelectionScreen(product: widget.product)),
+            );
+          },
+          child: Stack(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  widget.product.image,
-                  fit: BoxFit.cover,
-                  height: widget.height,
-                  width: widget.width,
-                ),
-              ),
-              WidgetMethods.verticalSpace(15),
-              Text(
-                "${widget.product.style} ${widget.product.title}",
-                style: const TextStyle(
-                  color: ColorConsts.black,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                ),
-              ),
-              WidgetMethods.verticalSpace(5),
-              Text.rich(
-                 TextSpan(
-                   text: widget.product.price.substring(0, 2),
-                   style: const TextStyle(
-                    color: ColorConsts.orange,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold
+              Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      widget.product.image,
+                      fit: BoxFit.cover,
+                      height: widget.height,
+                      width: widget.width,
+                    ),
                   ),
-                  children: [
-                    TextSpan(
-                      text: widget.product.price.substring(2),
-                      style: const TextStyle(
-                        color: ColorConsts.black,
-                        fontSize: 16,
+                  WidgetMethods.verticalSpace(15),
+                  Text(
+                    "${widget.product.style} ${widget.product.title}",
+                    style: const TextStyle(
+                      color: ColorConsts.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                    ),
+                  ),
+                  WidgetMethods.verticalSpace(5),
+                  Text.rich(
+                     TextSpan(
+                       text: widget.product.price.substring(0, 2),
+                       style: const TextStyle(
+                        color: ColorConsts.orange,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold
-                      )
-                    )
-                  ],
-                 ), 
-              )
+                      ),
+                      children: [
+                        TextSpan(
+                          text: widget.product.price.substring(2),
+                          style: const TextStyle(
+                            color: ColorConsts.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold
+                          )
+                        )
+                      ],
+                     ), 
+                  )
+                ],
+              ),
+              Positioned(
+                top: 15,
+                right: 12,
+                child: Consumer<FavouriteState>(
+                  builder: (context, FavouriteState favouriteState, _) {
+                    return GestureDetector(
+                      onTap: () {
+                        debugPrint("like has been pressed!"); 
+                        favouriteState.changeState(widget.product);
+                        // List data = localStorage.read("favourites") ?? []; 
+                        // data.add(widget.product); 
+                        // localStorage.write("favourites", data); 
+                      }, 
+                      child: favouriteState.isFavourite(widget.product) ? 
+                        Icon(Icons.favorite, color: ColorConsts.red, size: widget.iconSize,) :
+                          Icon(Icons.favorite_border_outlined, size: widget.iconSize,),
+                    );
+                  }, 
+                ),  
+              ), 
             ],
           ),
-          Positioned(
-            top: 15,
-            right: 12,
-            child: Consumer<FavouriteState>(
-              builder: (context, FavouriteState favouriteState, _) {
-                return GestureDetector(
-                  onTap: () {
-                    debugPrint("like has been pressed!"); 
-                    favouriteState.changeState(widget.product);
-                    // List data = localStorage.read("favourites") ?? []; 
-                    // data.add(widget.product); 
-                    // localStorage.write("favourites", data); 
-                  }, 
-                  child: favouriteState.isFavourite(widget.product) ? 
-                    Icon(Icons.favorite, color: ColorConsts.red, size: widget.iconSize,) :
-                      Icon(Icons.favorite_border_outlined, size: widget.iconSize,),
-                );
-              }, 
-            ),  
-          ), 
-        ],
-      ),
+        ),
+      ],
     );
   }
 } 
