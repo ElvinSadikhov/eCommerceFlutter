@@ -11,8 +11,7 @@ import 'package:e_commerce_app/ui/widgets/carousel_new.dart';
 import 'package:e_commerce_app/ui/widgets/category_option.dart'; 
 import 'package:e_commerce_app/ui/widgets/product_item.dart'; 
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart'; 
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter/material.dart'; 
 
 class HomeScreen extends StatelessWidget { 
 
@@ -83,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),  
                     WidgetMethods.verticalSpace(15),
-                    CarouselNew(),
+                    const CarouselNew(),
                     // Carousel(sizeOfScreen: sizeOfScreen), 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

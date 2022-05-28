@@ -2,8 +2,7 @@
 
 import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:e_commerce_app/data/strings.dart';
-import 'package:e_commerce_app/ui/screens/selection_screen.dart';
-import 'package:e_commerce_app/utils/helpers/product.dart';
+import 'package:e_commerce_app/ui/screens/selection_screen.dart'; 
 import 'package:e_commerce_app/utils/helpers/purchase.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';

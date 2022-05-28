@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_this
  
+import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:e_commerce_app/providers/category_state.dart'; 
 import 'package:e_commerce_app/ui/widgets/choise_option.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,12 @@ class _CategoryOptionState extends State<CategoryOption> {
         return ChoiseOption(
           label: widget.label, 
           fontSize: widget.fontSize, 
-          state: categoryState);
+          state: categoryState,
+          defaultBoxColor: ColorConsts.white, 
+          selectedBoxColor: ColorConsts.black,
+          defaultTextColor: ColorConsts.black, 
+          selectedTextColor: ColorConsts.white,
+        );
       } 
     );
   }

@@ -15,4 +15,14 @@ class ColorConsts {
   static const Color brown = Colors.brown;
   static const Color red = Colors.red;
 
+  static const List<Color> colorOptions = [
+    ColorConsts.white,
+    ColorConsts.black,
+    ColorConsts.indigo,
+    ColorConsts.purple,
+    ColorConsts.lightGreen,
+    ColorConsts.brown,
+    ColorConsts.red, 
+  ];
+
 }

@@ -2,38 +2,40 @@ import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:flutter/material.dart';
 
 class ColorState with ChangeNotifier{
-  final Map<Color, dynamic> _colors = {
-    ColorConsts.white: true,
-    ColorConsts.black: false,
-    ColorConsts.indigo: false,
-    ColorConsts.purple: false,
-    ColorConsts.lightGreen: false,
-    ColorConsts.brown: false,
-    ColorConsts.red: false,
-  };
+  final Map<Color, bool> _colorOptions = _init(ColorConsts.colorOptions);
 
-  Map<Color, dynamic> get colors => _colors;
+  static Map<Color, bool> _init(List<Color> data) {
+    Map<Color, bool> map = Map<Color, bool>();
+    for (Color option in data) {
+      map.putIfAbsent(option, () => false);
+    }
+    map[data[0]] = true;
+    return map;
+  }
 
-  bool isSelected(Color color) => _colors[color];
+
+  Map<Color, dynamic> get colors => _colorOptions;
+
+  bool isSelected(Color color) => _colorOptions[color]!;
 
   void select(Color color) {
     _resetAll();
-    _colors[color] = true;
+    _colorOptions[color] = true;
 
     notifyListeners();
   }
 
   void _resetAll() {
-    _colors.updateAll((key, value) => false);
+    _colorOptions.updateAll((key, value) => false);
   }
 
   Color? get selectedOption {
-    for (Color color in _colors.keys) {
-      if (_colors[color]) {
+    for (Color color in _colorOptions.keys) {
+      if (_colorOptions[color]!) {
         return color;
       }
     }
     return null;
-  }
+  } 
 
 }

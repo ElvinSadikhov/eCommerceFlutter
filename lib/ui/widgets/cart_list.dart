@@ -1,5 +1,4 @@
-import 'package:e_commerce_app/consts/color_consts.dart';
-import 'package:e_commerce_app/consts/padding_consts.dart'; 
+import 'package:e_commerce_app/consts/color_consts.dart';  
 import 'package:e_commerce_app/data/strings.dart';
 import 'package:e_commerce_app/providers/cart_state.dart';
 import 'package:e_commerce_app/ui/widgets/operation_panel.dart'; 
@@ -24,8 +23,7 @@ class _CartListState extends State<CartList> {
     return Consumer<CartState>(
       builder: (context, CartState cartState, _) {
         return SizedBox(
-          height: sizeOfScreen.height * 0.8,
-          // width: sizeOfScreen.width - 2 * PaddingConsts.kDefaultHorizontalPadding,
+          height: sizeOfScreen.height * 0.8, 
           child: ListView.builder(
             padding: const EdgeInsets.only(top: 20),
             physics: const BouncingScrollPhysics(),

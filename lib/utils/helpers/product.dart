@@ -24,19 +24,19 @@ class Product {
   @override
   int get hashCode => hashValues(style, title, price, image);
 
-  Product.fromJson(Map<String, dynamic> json)
-      : style = json['style'],
-        title = json['title'],
-        price = json['price'],
-        image = json['image'];
+  // Product.fromJson(Map<String, dynamic> json)
+  //     : style = json['style'],
+  //       title = json['title'],
+  //       price = json['price'],
+  //       image = json['image'];
 
-  Map<String, dynamic> toJson() {
-    return {
-      'style': style,
-      'title': title,
-      'price': price,
-      'image': image,
-    };
-  }
+  // Map<String, dynamic> toJson() {
+  //   return {
+  //     'style': style,
+  //     'title': title,
+  //     'price': price,
+  //     'image': image,
+  //   };
+  // }
 
 }

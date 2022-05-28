@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_this
 
 import 'package:e_commerce_app/consts/color_consts.dart';
+import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:e_commerce_app/consts/padding_consts.dart';
 import 'package:e_commerce_app/consts/size_consts.dart';
 import 'package:e_commerce_app/providers/cart_state.dart';
@@ -18,14 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SelectionScreen extends StatelessWidget {
-  final Product product;
-  final List<Color> colors = [ColorConsts.white,
-              ColorConsts.black, 
-              ColorConsts.indigo,
-              ColorConsts.purple,
-              ColorConsts.lightGreen, 
-              ColorConsts.brown,
-              ColorConsts.red];
+  final Product product; 
   final double heightOfBottomBar = 90; 
   
   SelectionScreen({ Key? key, required this.product }) : super(key: key);
@@ -125,7 +119,7 @@ class SelectionScreen extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              ...Strings.sizes.map(
+                              ...Strings.sizeOptions.map(
                                 (size) => Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 2),
                                   child: SizeOption(
@@ -154,7 +148,7 @@ class SelectionScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 10),
                             child: Row(
                               children: [
-                                ...this.colors.map((color) => ColorBox(fillColor: color)),
+                                ...ColorConsts.colorOptions.map((color) => ColorBox(fillColor: color)),
                               ],
                             ),
                           )

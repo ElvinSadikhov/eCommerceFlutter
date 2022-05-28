@@ -1,3 +1,6 @@
+import 'package:e_commerce_app/consts/color_consts.dart';
+import 'package:flutter/material.dart';
+
 class Strings {
   
   
@@ -8,8 +11,8 @@ class Strings {
   static const List<String> categoryOptions = ["All", "Winter", "Women", "Eyewear"];
 
   static const String selectSize = "Select Size";
-  static const List<String> sizes = ["S", "M", "L", "XL", "XXL"];
-  static const String selectColor = "Select Color";
+  static const List<String> sizeOptions = ["S", "M", "L", "XL", "XXL"];
+  static const String selectColor = "Select Color"; 
   static const String addToCart = "Add to Cart";
   
   static const String favouriteProducts = "Favourite Products";

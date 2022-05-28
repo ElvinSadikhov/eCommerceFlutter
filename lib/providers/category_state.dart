@@ -1,42 +1,33 @@
-import 'package:e_commerce_app/consts/color_consts.dart'; 
+// ignore_for_file: prefer_collection_literals
+
+import 'package:e_commerce_app/data/strings.dart'; 
 import 'package:flutter/cupertino.dart';
 
 class CategoryState with ChangeNotifier {
-  final Map<String, Map<String, Color>> _categoryOptions = {
-    "All": {
-      "boxColor": ColorConsts.black,
-      "textColor": ColorConsts.white
-    },
-    "Winter": {
-      "boxColor": ColorConsts.white,
-      "textColor": ColorConsts.black
-    },
-    "Women": {
-      "boxColor": ColorConsts.white,
-      "textColor": ColorConsts.black
-    },
-    "Eyewear": {
-      "boxColor": ColorConsts.white,
-      "textColor": ColorConsts.black
-    },
-  };
+  final Map<String, bool> _categoryOptions = _init(Strings.categoryOptions);
+  
+  static Map<String, bool> _init(List<String> data) {
+    Map<String, bool> map = Map<String, bool>();
+    for (String option in data) {
+      map.putIfAbsent(option, () => false);
+    }
+    map[data[0]] = true;
+    return map;
+  } 
+
 
   Map get options => _categoryOptions;
 
-  void changeColor(String option) {
-    _resetAll(); 
-    _categoryOptions[option]!["boxColor"] = ColorConsts.black;
-    _categoryOptions[option]!["textColor"] = ColorConsts.white;
+  void chooseOption(String option) {
+    _resetAll();  
+    _categoryOptions[option] = true;
 
     notifyListeners();
   }
 
   void _resetAll() { 
-    for (String option in _categoryOptions.keys) {
-      debugPrint(option); 
-      _categoryOptions[option]!["boxColor"] = ColorConsts.white;
-      _categoryOptions[option]!["textColor"] = ColorConsts.black;
-    }
-  } 
+    _categoryOptions.updateAll((key, value) => false);
+  }
+
 }
  
