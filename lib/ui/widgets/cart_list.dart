@@ -25,15 +25,16 @@ class _CartListState extends State<CartList> {
       builder: (context, CartState cartState, _) {
         return SizedBox(
           height: sizeOfScreen.height * 0.8,
-          width: sizeOfScreen.width - 2 * PaddingConsts.kDefaultHorizontalPadding,
+          // width: sizeOfScreen.width - 2 * PaddingConsts.kDefaultHorizontalPadding,
           child: ListView.builder(
+            padding: const EdgeInsets.only(top: 20),
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
             itemCount: cartState.purchases.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 20),
-                child: Row(  
+                child: Row(   
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ClipRRect(

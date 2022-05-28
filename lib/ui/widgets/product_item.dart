@@ -2,7 +2,7 @@
  
 import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:e_commerce_app/consts/size_consts.dart';
-import 'package:e_commerce_app/utils/product.dart'; 
+import 'package:e_commerce_app/utils/helpers/product.dart'; 
 import 'package:e_commerce_app/providers/favourite_state.dart'; 
 import 'package:e_commerce_app/ui/screens/selection_screen.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';

@@ -6,14 +6,14 @@ import 'package:e_commerce_app/consts/size_consts.dart';
 import 'package:e_commerce_app/providers/cart_state.dart';
 import 'package:e_commerce_app/providers/color_state.dart';
 import 'package:e_commerce_app/providers/size_state.dart';
-import 'package:e_commerce_app/utils/product.dart';
+import 'package:e_commerce_app/utils/helpers/product.dart';
 import 'package:e_commerce_app/data/strings.dart';
 import 'package:e_commerce_app/providers/favourite_state.dart'; 
 import 'package:e_commerce_app/ui/widgets/back_button.dart' as custom; 
 import 'package:e_commerce_app/ui/widgets/color_box.dart'; 
 import 'package:e_commerce_app/ui/widgets/size_option.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';
-import 'package:e_commerce_app/utils/purchase.dart';
+import 'package:e_commerce_app/utils/helpers/purchase.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

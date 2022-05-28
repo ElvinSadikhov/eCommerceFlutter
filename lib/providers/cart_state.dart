@@ -1,6 +1,5 @@
-import 'package:e_commerce_app/data/strings.dart';
-import 'package:e_commerce_app/utils/product.dart';
-import 'package:e_commerce_app/utils/purchase.dart';
+import 'package:e_commerce_app/data/strings.dart'; 
+import 'package:e_commerce_app/utils/helpers/purchase.dart';
 import 'package:flutter/cupertino.dart';
 
 class CartState with ChangeNotifier {
@@ -37,7 +36,7 @@ class CartState with ChangeNotifier {
       sum += double.parse(purchase.product.price.substring(2)) * purchase.count;
     }
 
-    return "${Strings.euro} ${sum.toStringAsFixed(3)}";
+    return "${Strings.euro} ${sum.toStringAsFixed(2)}";
   }
   
   List<Purchase> get purchases => _purchases; 

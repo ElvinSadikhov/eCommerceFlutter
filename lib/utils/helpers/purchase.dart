@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:e_commerce_app/utils/product.dart';
+import 'package:e_commerce_app/utils/helpers/product.dart';
 import 'package:flutter/material.dart';
 
 class Purchase { 

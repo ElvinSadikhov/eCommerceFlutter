@@ -17,9 +17,7 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size sizeOfScreen = MediaQuery.of(context).size;
-
-    debugPrint(context.read<CartState>().purchases.toString());
+    Size sizeOfScreen = MediaQuery.of(context).size; 
 
     return Scaffold(
       body: Padding(
