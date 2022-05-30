@@ -3,6 +3,7 @@
 import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:e_commerce_app/consts/padding_consts.dart';
 import 'package:e_commerce_app/consts/size_consts.dart';
+import 'package:e_commerce_app/data/data_sets.dart';
 import 'package:e_commerce_app/data/products.dart';
 import 'package:e_commerce_app/data/strings.dart'; 
 import 'package:e_commerce_app/ui/screens/cart_screen.dart';  
@@ -76,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                     Row( 
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ...Strings.categoryOptions.map(
+                        ...DataSets.categoryOptions.map(
                           (label) => CategoryOption(label: label, fontSize: 16)
                         )
                       ],

@@ -1,7 +1,9 @@
-import 'package:e_commerce_app/consts/color_consts.dart';  
+import 'package:e_commerce_app/consts/color_consts.dart';
+import 'package:e_commerce_app/consts/padding_consts.dart';  
 import 'package:e_commerce_app/data/strings.dart';
 import 'package:e_commerce_app/providers/cart_state.dart';
-import 'package:e_commerce_app/ui/widgets/operation_panel.dart'; 
+import 'package:e_commerce_app/ui/widgets/operation_panel.dart';
+import 'package:e_commerce_app/ui/widgets/signed_box.dart'; 
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart'; 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,14 +18,14 @@ class CartList extends StatefulWidget {
 
 class _CartListState extends State<CartList> {
   @override
-  Widget build(BuildContext context) { 
-
+  Widget build(BuildContext context) {  
     Size sizeOfScreen = MediaQuery.of(context).size;
 
     return Consumer<CartState>(
       builder: (context, CartState cartState, _) {
         return SizedBox(
           height: sizeOfScreen.height * 0.8, 
+          width: sizeOfScreen.width - 2 * PaddingConsts.kDefaultHorizontalPadding,
           child: ListView.builder(
             padding: const EdgeInsets.only(top: 20),
             physics: const BouncingScrollPhysics(),
@@ -32,7 +34,8 @@ class _CartListState extends State<CartList> {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 20),
-                child: Row(   
+                child: Row(    
+                  mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ClipRRect(
@@ -45,7 +48,7 @@ class _CartListState extends State<CartList> {
                       ),
                     ),
                     WidgetMethods.horizontalSpace(15),
-                    Column(
+                    Column( 
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         WidgetMethods.verticalSpace(5),

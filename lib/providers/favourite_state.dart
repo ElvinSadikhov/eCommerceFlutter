@@ -22,6 +22,7 @@ class FavouriteState with ChangeNotifier {
 
   // List<Product> _getData() {
   //   return List<Product>.from(_localStorage.read(Strings.favouriteProducts) ?? []);
+  //   // return _localStorage.read(Strings.favouriteProducts).cast<Product>() ?? [];
   // }
 
   // void _setData(List<Product> favourites) {

@@ -1,8 +1,10 @@
-import 'package:e_commerce_app/data/strings.dart'; 
+// ignore_for_file: prefer_collection_literals
+
+import 'package:e_commerce_app/data/data_sets.dart'; 
 import 'package:flutter/cupertino.dart';
 
 class SizeState with ChangeNotifier {
-  final Map<String, bool> _sizeOptions = _init(Strings.sizeOptions);
+  final Map<String, bool> _sizeOptions = _init(DataSets.sizeOptions);
 
   static Map<String, bool> _init(List<String> data) {
     Map<String, bool> map = Map<String, bool>();

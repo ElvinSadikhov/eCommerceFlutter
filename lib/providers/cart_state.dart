@@ -6,20 +6,23 @@ class CartState with ChangeNotifier {
   final List<Purchase> _purchases = [];
 
   void addToCart(Purchase purchase) {
+    // _purchases.indexWhere((element) => element.id == purchase.id);
     _purchases.contains(purchase)  
       ? _purchases[_purchases.indexOf(purchase)] = _purchases[_purchases.indexOf(purchase)].incrementCount() 
         : _purchases.add(purchase);
+
     notifyListeners();
 
-    for (Purchase purchase in _purchases) {
-      debugPrint("${purchase.product} ${purchase.size} ${purchase.color} ${purchase.count}");
-    } 
+    // for (Purchase purchase in _purchases) {
+    //   debugPrint("${purchase.product} ${purchase.size} ${purchase.color} ${purchase.count}");
+    // } 
   }
 
   void removeFromCart(Purchase purchase) {
     _purchases[_purchases.indexOf(purchase)].count > 1
       ? _purchases[_purchases.indexOf(purchase)] = _purchases[_purchases.indexOf(purchase)].decrementCount()
         : _purchases.remove(purchase);
+
     notifyListeners();
   } 
 

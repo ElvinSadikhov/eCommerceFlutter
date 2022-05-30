@@ -2,6 +2,7 @@
 
 import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:e_commerce_app/consts/size_consts.dart';
+import 'package:e_commerce_app/data/image_resources.dart';
 import 'package:e_commerce_app/data/strings.dart';
 import 'package:e_commerce_app/ui/widgets/logo_box.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';
@@ -20,7 +21,7 @@ class DeliveryAddress extends StatelessWidget {
       children: [
         Row(
           children: [
-            const LogoBox(imageAsset: Strings.geolocationLogoAsset),
+            const LogoBox(imageAsset: ImageResources.geolocationLogoAsset),
             WidgetMethods.horizontalSpace(12),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start, 

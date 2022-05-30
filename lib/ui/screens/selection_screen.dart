@@ -1,9 +1,9 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:e_commerce_app/consts/color_consts.dart';
-import 'package:e_commerce_app/consts/color_consts.dart';
+import 'package:e_commerce_app/consts/color_consts.dart'; 
 import 'package:e_commerce_app/consts/padding_consts.dart';
 import 'package:e_commerce_app/consts/size_consts.dart';
+import 'package:e_commerce_app/data/data_sets.dart';
 import 'package:e_commerce_app/providers/cart_state.dart';
 import 'package:e_commerce_app/providers/color_state.dart';
 import 'package:e_commerce_app/providers/size_state.dart';
@@ -119,7 +119,7 @@ class SelectionScreen extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              ...Strings.sizeOptions.map(
+                              ...DataSets.sizeOptions.map(
                                 (size) => Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 2),
                                   child: SizeOption(

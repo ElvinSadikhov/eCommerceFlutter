@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_this
 
+import 'package:e_commerce_app/data/image_resources.dart';
 import 'package:e_commerce_app/data/strings.dart';
 
 class PaymentMethod {
@@ -24,13 +25,13 @@ class PaymentMethod {
   String getLogoAsset() { 
     switch (cardType) {
       case Strings.applePay:
-        return Strings.applePayLogoAsset; 
+        return ImageResources.applePayLogoAsset; 
       case Strings.masterCard:
-        return Strings.masterCardLogoAsset;
+        return ImageResources.masterCardLogoAsset;
       case Strings.vPay:
-        return Strings.vPayLogoAsset; 
+        return ImageResources.vPayLogoAsset; 
       default:
-        return Strings.applePayLogoAsset;
+        return ImageResources.applePayLogoAsset;
     }
   }
 } 

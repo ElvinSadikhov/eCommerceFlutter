@@ -2,16 +2,12 @@ import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:flutter/material.dart';
 
 class Strings {
-  
-  
-
+   
   Strings._();
 
   static const String title = "Find your style";
-  static const List<String> categoryOptions = ["All", "Winter", "Women", "Eyewear"];
 
   static const String selectSize = "Select Size";
-  static const List<String> sizeOptions = ["S", "M", "L", "XL", "XXL"];
   static const String selectColor = "Select Color"; 
   static const String addToCart = "Add to Cart";
   
@@ -30,15 +26,18 @@ class Strings {
   static const String deliveryAddress = "Delivery Address"; 
   static const String paymentMethod = "Payment Method"; 
 
-  static const String geolocationLogoAsset = "assets/images/geolocation_logo.png";
   static const String addressTitle = "20845 Oakridge Farm Lane";
   static const String addressSubtitle = "New York (NYC)"; 
   static const String applePay = "Apple Pay";
   static const String masterCard = "Master Card"; 
   static const String vPay = "V Pay"; 
-  static const String applePayLogoAsset = "assets/images/apple_pay_logo.png";
-  static const String masterCardLogoAsset = "assets/images/master_card_logo.png";
-  static const String vPayLogoAsset = "assets/images/v_pay_logo.png";
   static const String payNow = "Pay Now";
+
+  static const String cardNumber1 = "1021321003578420";
+  static const String cardNumber2 = "3020146507384085";
+  static const String cardNumber3 = "1021321003578420";
+  static const String expireDate1 = "02/26";
+  static const String expireDate2 = "03/26";
+  static const String expireDate3 = "04/26";
  
 }
