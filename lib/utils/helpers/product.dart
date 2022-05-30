@@ -1,34 +1,19 @@
-import 'package:flutter/material.dart'; 
+import 'dart:ui';
 import 'dart:convert';
-
-Product productFromJson(String str) => Product.fromJson(json.decode(str));
-
-String productToJson(Product data) => json.encode(data.toJson());
-
+ 
+ 
 class Product {
+  Product({
+    required this.style,
+    required this.title,
+    required this.price,
+    required this.image,
+  });
+
   final String style;
   final String title;
   final String price;
-  final String image; 
-
-  Product({
-    required this.style, 
-    required this.title, 
-    required this.price, 
-    required this.image
-  });
-
-  @override
-  operator ==(o) =>
-      o is Product &&
-      o.style == style &&
-      o.title == title &&
-      o.price == price &&
-      o.image == image;
-
-  @override
-  int get hashCode => hashValues(style, title, price, image);
-
+  final String image;
 
   factory Product.fromRawJson(String str) => Product.fromJson(json.decode(str));
 
@@ -48,19 +33,15 @@ class Product {
     "image": image,
   };
 
-  // Product.fromJson(Map<String, dynamic> json)
-  //     : style = json['style'],
-  //       title = json['title'],
-  //       price = json['price'],
-  //       image = json['image'];
+  @override
+  operator ==(o) =>
+      o is Product &&
+      o.style == style &&
+      o.title == title &&
+      o.price == price &&
+      o.image == image;
 
-  // Map<String, dynamic> toJson() {
-  //   return {
-  //     'style': style,
-  //     'title': title,
-  //     'price': price,
-  //     'image': image,
-  //   };
-  // }
+  @override
+  int get hashCode => hashValues(style, title, price, image);
 
 }

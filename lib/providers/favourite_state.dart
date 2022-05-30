@@ -1,50 +1,53 @@
-import 'package:e_commerce_app/data/products.dart';
-import 'package:e_commerce_app/data/strings.dart';
+import 'package:e_commerce_app/data/keys.dart'; 
 import 'package:e_commerce_app/utils/helpers/product.dart';
+import 'package:e_commerce_app/utils/helpers/product_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_storage/get_storage.dart';
 
-class FavouriteState with ChangeNotifier {
-  final List<Product> _favourites = [];
+class FavouriteState with ChangeNotifier { 
+  final GetStorage _localStorage = GetStorage(Keys.favouriteProducts);
 
-  bool isFavourite(Product product) => _favourites.contains(product);
+  ProductList _getData() {
+    String? data = _localStorage.read(Keys.favouriteProducts); 
+    return data != null ? ProductList.fromRawJson(data) : ProductList(products: []);
+  } 
 
-  void changeState(Product product) {
-    isFavourite(product) ? _favourites.remove(product) : _favourites.add(product);
+  Future<void> _setData(ProductList favourites) async =>
+    await _localStorage.write(Keys.favouriteProducts, favourites.toRawJson()); 
+  
+
+  bool isFavourite(Product product) => _getData().products.contains(product);
+
+  void changeState(Product product) { 
+    List<Product> products = _getData().products;
+
+    if (isFavourite(product)) {
+      products.remove(product);
+    } else {
+      products.add(product);
+    } 
+
+    _setData(ProductList(products: products));
  
     notifyListeners();
   }
  
-  List get favoutires => _favourites; 
-
-  
-  // final GetStorage _localStorage = GetStorage(Strings.favouriteProducts);
-
-  // List<Product> _getData() {
-  //   return List<Product>.from(_localStorage.read(Strings.favouriteProducts) ?? []);
-  //   // return _localStorage.read(Strings.favouriteProducts).cast<Product>() ?? [];
-  // }
-
-  // void _setData(List<Product> favourites) {
-  //   _localStorage.write(Strings.favouriteProducts, favourites);
-  // }
-
-  // bool isFavourite(Product product) => _getData().contains(product);
-
-  // void changeState(Product product) { 
-  //   List<Product> temp = _getData();
-
-  //   if (isFavourite(product)) {
-  //     temp.remove(product);
-  //   } else {
-  //     temp.add(product);
-  //   } 
-
-  //   _setData(temp);
- 
-  //   notifyListeners();
-  // }
- 
-  // List get favoutires => _getData(); 
+  List get favoutires => _getData().products; 
  
 }
+
+// class FavouriteState with ChangeNotifier {
+
+//   final List<Product> _favourites = [];
+
+//   bool isFavourite(Product product) => _favourites.contains(product);
+
+//   void changeState(Product product) {
+//     isFavourite(product) ? _favourites.remove(product) : _favourites.add(product);
+ 
+//     notifyListeners();
+//   }
+ 
+//   List get favoutires => _favourites; 
+
+// }
