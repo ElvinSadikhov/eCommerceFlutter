@@ -4,5 +4,6 @@ class Keys {
 
   static const String favouriteProducts = "favouriteProducts";
   static const String cart = "cart";
+  static const String payments = "payments";
   
 }

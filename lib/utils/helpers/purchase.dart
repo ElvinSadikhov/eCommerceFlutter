@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final purchaseList = purchaseListFromJson(jsonString);
-
 // ignore_for_file: unnecessary_this
 
 import 'package:e_commerce_app/utils/helpers/product.dart';
@@ -19,7 +15,7 @@ class Purchase {
 
     final Product product;
     final String size;
-    final Color color;
+    final Color color; 
     int count;
 
     factory Purchase.fromRawJson(String str) => Purchase.fromJson(json.decode(str));
@@ -27,16 +23,16 @@ class Purchase {
     String toRawJson() => json.encode(toJson());
 
     factory Purchase.fromJson(Map<String, dynamic> json) => Purchase(
-        product: json["product"],
+        product: Product.fromJson(json["product"]),
         size: json["size"],
-        color: json["color"],
+        color: Color(int.parse(json["colorValueAsString"])),
         count: json["count"],
     );
 
     Map<String, dynamic> toJson() => {
-        "product": product,
+        "product": product.toJson(),
         "size": size,
-        "color": color,
+        "colorValueAsString": color.value.toString(),
         "count": count,
     };
 

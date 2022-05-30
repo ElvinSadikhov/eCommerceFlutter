@@ -95,7 +95,7 @@ class _ProductItemState extends State<ProductItem> {
                   builder: (context, FavouriteState favouriteState, _) {
                     return GestureDetector(
                       onTap: () {
-                        debugPrint("like has been pressed!"); 
+                        debugPrint("Like button has been pressed!"); 
                         favouriteState.changeState(widget.product);
                         // List data = localStorage.read("favourites") ?? []; 
                         // data.add(widget.product); 

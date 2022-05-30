@@ -140,6 +140,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 ); 
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Payment was successful!")));
                 
+                context.read<CartState>().saveInLocal(); 
                 context.read<CartState>().resetState(); 
               },
               child: ClipRRect(

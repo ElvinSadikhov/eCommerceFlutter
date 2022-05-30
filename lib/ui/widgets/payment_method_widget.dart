@@ -61,7 +61,7 @@ class _PaymentMethodWidgetState extends State<PaymentMethodWidget> {
               ),
               GestureDetector(
                 onTap: () {
-                  debugPrint("Delivery address details has been tapped!");
+                  debugPrint("New payment method has been choosen!");
                 },
                 child: CustomRadioButton(
                   paymentMethod: widget.paymentMethod, 

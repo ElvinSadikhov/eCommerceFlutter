@@ -198,8 +198,7 @@ class SelectionScreen extends StatelessWidget {
                                         color: context.read<ColorState>().selectedOption!,
                                         count: 1  
                                       )
-                                    );
-                                    debugPrint(cartState.purchases.toString());
+                                    ); 
                                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Product has been added to the cart!")));
                                   },
                                   child:  ClipRRect( 

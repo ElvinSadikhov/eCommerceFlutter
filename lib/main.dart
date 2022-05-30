@@ -13,7 +13,8 @@ import 'package:provider/provider.dart';
 
 Future<void> main() async {
   await GetStorage.init(Keys.favouriteProducts);  
-  await GetStorage.init(Keys.cart);  
+  await GetStorage.init(Keys.cart);   
+  await GetStorage.init(Keys.payments);   
   
   runApp(
     MultiProvider(providers: [
