@@ -10,7 +10,7 @@ import 'package:e_commerce_app/providers/size_state.dart';
 import 'package:e_commerce_app/utils/helpers/product.dart';
 import 'package:e_commerce_app/data/strings.dart';
 import 'package:e_commerce_app/providers/favourite_state.dart'; 
-import 'package:e_commerce_app/ui/widgets/back_button.dart' as custom; 
+import 'package:e_commerce_app/ui/widgets/custom_back_button.dart'; 
 import 'package:e_commerce_app/ui/widgets/color_box.dart'; 
 import 'package:e_commerce_app/ui/widgets/size_option.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';
@@ -36,7 +36,7 @@ class SelectionScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                custom.BackButton(screenContext: context),
+                CustomBackButton(screenContext: context),
                 Consumer<FavouriteState>(
                   builder:(context, FavouriteState favouriteState, _) { 
 

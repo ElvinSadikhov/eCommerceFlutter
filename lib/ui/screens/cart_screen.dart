@@ -1,16 +1,15 @@
 import 'package:e_commerce_app/consts/color_consts.dart';
-import 'package:e_commerce_app/consts/padding_consts.dart';
-import 'package:e_commerce_app/consts/size_consts.dart';
+import 'package:e_commerce_app/consts/padding_consts.dart'; 
 import 'package:e_commerce_app/data/strings.dart';
 import 'package:e_commerce_app/providers/cart_state.dart';
 import 'package:e_commerce_app/ui/screens/checkout_screen.dart';
+import 'package:e_commerce_app/ui/widgets/custom_app_bar.dart';
 import 'package:e_commerce_app/ui/widgets/cart_list.dart';
 import 'package:e_commerce_app/ui/widgets/dashed_lines.dart';
 import 'package:e_commerce_app/ui/widgets/price_widget.dart';
 import 'package:e_commerce_app/utils/helpers/total_price.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce_app/ui/widgets/back_button.dart' as custom;
 import 'package:provider/provider.dart'; 
 
 class CartScreen extends StatelessWidget {
@@ -26,24 +25,7 @@ class CartScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                custom.BackButton(screenContext: context),
-                const Text(
-                  Strings.myCart,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConsts.black,
-                  ),
-                ),
-                const Icon(
-                  Icons.shopping_bag_sharp,
-                  size: SizeConsts.kDefaultIconSize,
-                )
-              ],
-            ), 
+            const CustomAppBar(rightSideIcon: Icons.shopping_bag_sharp, label: Strings.myCart),
             WidgetMethods.verticalSpace(5),
             SizedBox(
               height: sizeOfScreen.height * 0.55,

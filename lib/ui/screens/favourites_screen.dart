@@ -4,7 +4,7 @@ import 'package:e_commerce_app/data/strings.dart';
 import 'package:e_commerce_app/providers/favourite_state.dart';
 import 'package:e_commerce_app/ui/widgets/product_item.dart';
 import 'package:e_commerce_app/utils/helpers/widget_methods.dart';
-import 'package:e_commerce_app/ui/widgets/back_button.dart' as custom; 
+import 'package:e_commerce_app/ui/widgets/custom_back_button.dart'; 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; 
 
@@ -32,7 +32,7 @@ class _FavouritesScreenState extends State<FavouritesScreen> {
           children: [ 
             Align(
               alignment: Alignment.centerLeft,
-              child: custom.BackButton(screenContext: context),
+              child: CustomBackButton(screenContext: context),
             ),
             const Text(
               Strings.favouriteProducts,

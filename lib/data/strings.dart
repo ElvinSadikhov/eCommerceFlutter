@@ -39,5 +39,7 @@ class Strings {
   static const String expireDate1 = "02/26";
   static const String expireDate2 = "03/26";
   static const String expireDate3 = "04/26";
+
+  static const String addNewCard = "Add New Card";
  
 }

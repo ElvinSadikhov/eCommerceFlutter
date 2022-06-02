@@ -3,10 +3,10 @@
 import 'package:e_commerce_app/consts/size_consts.dart';
 import 'package:flutter/material.dart';
 
-class BackButton extends StatelessWidget {
+class CustomBackButton extends StatelessWidget {
   final BuildContext screenContext;
 
-  const BackButton({ Key? key, required this.screenContext }) : super(key: key);
+  const CustomBackButton({ Key? key, required this.screenContext }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

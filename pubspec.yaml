@@ -37,7 +37,8 @@ dependencies:
   carousel_slider: ^4.1.1
   provider: ^6.0.2
   get_storage: ^2.0.3
-  carousel_hero: ^0.0.1
+  carousel_hero: ^0.0.1 
+  flutter_credit_card: ^3.0.1
 
 dev_dependencies:
   flutter_test:

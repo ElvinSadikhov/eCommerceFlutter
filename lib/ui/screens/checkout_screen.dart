@@ -4,9 +4,10 @@ import 'package:e_commerce_app/consts/size_consts.dart';
 import 'package:e_commerce_app/data/strings.dart';
 import 'package:e_commerce_app/providers/cart_state.dart';
 import 'package:e_commerce_app/providers/payment_state.dart';
+import 'package:e_commerce_app/ui/screens/add_card_screen.dart';
 import 'package:e_commerce_app/ui/screens/cart_screen.dart';
 import 'package:e_commerce_app/ui/screens/home_screen.dart';
-import 'package:e_commerce_app/ui/widgets/back_button.dart' as custom;
+import 'package:e_commerce_app/ui/widgets/custom_app_bar.dart';
 import 'package:e_commerce_app/ui/widgets/cart_shortcut.dart';
 import 'package:e_commerce_app/ui/widgets/delivery_address.dart';
 import 'package:e_commerce_app/ui/widgets/payment_method_widget.dart';
@@ -35,21 +36,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                custom.BackButton(screenContext: context),
-                const Text(
-                  Strings.checkout,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConsts.black,
-                  ),
-                ),
-                const Icon(Icons.more_vert, color: ColorConsts.black, size: SizeConsts.kDefaultIconSize,)
-              ]
-            ),
+            const CustomAppBar(rightSideIcon: Icons.more_vert, label: Strings.checkout),
             WidgetMethods.verticalSpace(40),
             const Text(
               Strings.deliveryAddress,
@@ -62,13 +49,27 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             WidgetMethods.verticalSpace(15),
             const DeliveryAddress(title: Strings.addressTitle, subTitle: Strings.addressSubtitle,),
             WidgetMethods.verticalSpace(20),
-            const Text(
-              Strings.paymentMethod,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: ColorConsts.black
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  Strings.paymentMethod,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: ColorConsts.black
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const AddCardScreen()),
+                    ); 
+                  },
+                  child: const Icon(Icons.add, size: SizeConsts.logoBoxSize)
+                )
+              ],
             ),
             WidgetMethods.verticalSpace(10),
             SizedBox(
