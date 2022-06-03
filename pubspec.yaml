@@ -39,6 +39,7 @@ dependencies:
   get_storage: ^2.0.3
   carousel_hero: ^0.0.1 
   awesome_card: ^1.1.7 
+  flutter_multi_formatter: ^2.5.7
 
 dev_dependencies:
   flutter_test:

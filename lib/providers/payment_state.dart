@@ -21,6 +21,12 @@ class PaymentState with ChangeNotifier {
       element.isSelected = false;
     }
   }
+
+  void addPaymentMethod(PaymentMethod paymentMethod) {
+    _paymentMethods.add(paymentMethod);
+
+    notifyListeners();
+  }
  
   List<PaymentMethod> get paymentMethods => _paymentMethods; 
   

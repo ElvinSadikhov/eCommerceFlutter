@@ -42,5 +42,9 @@ class Strings {
 
   static const String addNewCard = "Add New Card";
   static const String fastacy = "Fastacy";
+  static const String cardHolder = "Card Holder";
+  static const String cardNumber = "Card Number";
+  static const String cardExpry = "Card Expry";
+  static const String cvv = "CVV";
  
 }

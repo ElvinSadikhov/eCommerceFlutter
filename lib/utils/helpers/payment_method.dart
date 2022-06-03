@@ -1,7 +1,8 @@
 // ignore_for_file: unnecessary_this
 
+import 'package:awesome_card/awesome_card.dart';
 import 'package:e_commerce_app/data/image_resources.dart';
-import 'package:e_commerce_app/data/strings.dart';
+import 'package:e_commerce_app/data/strings.dart'; 
 
 class PaymentMethod {
   final String cardType;
@@ -31,7 +32,7 @@ class PaymentMethod {
       case Strings.vPay:
         return ImageResources.vPayLogoAsset; 
       default:
-        return ImageResources.applePayLogoAsset;
+        return ImageResources.masterCardLogoAsset;
     }
   }
 } 
