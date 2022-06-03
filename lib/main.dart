@@ -5,6 +5,7 @@ import 'package:e_commerce_app/providers/category_state.dart';
 import 'package:e_commerce_app/providers/color_state.dart';
 import 'package:e_commerce_app/providers/favourite_state.dart';
 import 'package:e_commerce_app/providers/cart_state.dart';
+import 'package:e_commerce_app/providers/new_card_state.dart';
 import 'package:e_commerce_app/providers/payment_state.dart';
 import 'package:e_commerce_app/providers/size_state.dart'; 
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ Future<void> main() async {
       ChangeNotifierProvider(create: (_) => FavouriteState()),
       ChangeNotifierProvider(create: (_) => CartState()),
       ChangeNotifierProvider(create: (_) => PaymentState()),
+      ChangeNotifierProvider(create: (_) => NewCardState()),
     ],
     child: const MyApp()
     ,) 

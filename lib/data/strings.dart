@@ -41,5 +41,6 @@ class Strings {
   static const String expireDate3 = "04/26";
 
   static const String addNewCard = "Add New Card";
+  static const String fastacy = "Fastacy";
  
 }
