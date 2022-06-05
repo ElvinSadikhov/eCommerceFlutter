@@ -142,6 +142,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               Provider.of<PaymentState>(context, listen: false).addPaymentMethod(PaymentMethod(cardType: newCardState.type, cardNumber: newCardState.number, cardHolder: newCardState.holderName, expireDate: newCardState.expryDate, isSelected: false));
+                              newCardState.resetAll();
                               Navigator.pop(context);
                               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("You successfully added card!")));
                             } 

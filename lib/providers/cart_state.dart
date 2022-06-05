@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/data/keys.dart';
-import 'package:e_commerce_app/data/strings.dart'; 
+import 'package:e_commerce_app/data/strings.dart';
+import 'package:e_commerce_app/utils/helpers/local_storage.dart'; 
 import 'package:e_commerce_app/utils/helpers/purchase.dart';
 import 'package:e_commerce_app/utils/helpers/purchase_list.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,13 +8,14 @@ import 'package:get_storage/get_storage.dart';
 
 
 class CartState with ChangeNotifier {
-  final GetStorage _localCart = GetStorage(Keys.cart);
-  final GetStorage _localPayments = GetStorage(Keys.payments);
+ 
+  final GetStorage _localCart = LocalStorage.getStorage(Keys.cart); 
+  final GetStorage _localPayments = LocalStorage.getStorage(Keys.payments);
 
   PurchaseList _getData() {
     String? data = _localCart.read(Keys.cart); 
-    return data != null ? PurchaseList.fromRawJson(data) : PurchaseList(purchases: []);
-  }
+    return data != null ? PurchaseList.fromRawJson(data) : PurchaseList(purchases: []); 
+  } 
 
   Future<void> _setData(PurchaseList purchases) async =>
     await _localCart.write(Keys.cart, purchases.toRawJson());

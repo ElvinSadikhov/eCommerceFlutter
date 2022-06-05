@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:awesome_card/extra/card_type.dart';
 import 'package:e_commerce_app/data/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_multi_formatter/formatters/credit_card_number_input_formatter.dart'; 
@@ -61,6 +60,16 @@ class NewCardState with ChangeNotifier {
 
   //   notifyListeners();
   // } 
+
+  void resetAll() {
+    this._holderName = "";
+    this._type = Strings.masterCard;
+    this._number = "";
+    this._expryDate = "";
+    this._cvv = "";
+    this._isOnBackSide = false;
+    this._isCvvFieldOnFocus = false;
+  }
 
 
   String get holderName => _holderName;

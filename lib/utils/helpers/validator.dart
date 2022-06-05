@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Validator {
 
   Validator._();
@@ -10,8 +8,7 @@ class Validator {
   }  
 
   static String? validateCardNumber(String? value) {
-    return value == null || value.isEmpty ? "Please enter card number!" :
-      value.length != 16 ? "Card number must containe 16 digits!" : null;
+    return value == null || value.isEmpty ? "Please enter card number!" : null;
   }
 
   static String? validateExpryDate(String? value) {
@@ -22,8 +19,8 @@ class Validator {
     List<String>? valueList = value?.split("/"); 
     if (valueList != null && valueList.length == 2) {
       cardMonth = int.parse(valueList[0]);
-      cardMonth = 2000 + int.parse(valueList[1]);
-    } 
+      cardYear = 2000 + int.parse(valueList[1]);
+    }  
        
     return value == null || value.length != 5  ? "Please enter expry date!" :
       cardMonth != null && cardYear != null && (cardYear < curDate.year || 
