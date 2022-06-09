@@ -2,21 +2,30 @@ import 'package:e_commerce_app/consts/color_consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class CustomTextFormField { 
 
-  CustomTextFormField._();
- 
-  static TextFormField getFormField({
-    required TextEditingController controller, 
-    required Function(String?) validator,
-    required String labelText,
-    required Function(String) onChanged,
-    FocusNode? focusNode,
-    TextInputAction textInputAction = TextInputAction.next,
-    List<TextInputFormatter>? inputFormatters, 
-    TextInputType? keyboardType,
-      }) {
+class CustomTextFormField extends StatelessWidget {
+  final TextEditingController controller; 
+  final Function(String?) validator;
+  final String labelText;
+  final Function(String) onChanged;
+  final FocusNode? focusNode;
+  final TextInputAction textInputAction;
+  final List<TextInputFormatter>? inputFormatters; 
+  final TextInputType? keyboardType;
 
+  const CustomTextFormField({ Key? key,
+    required this.controller, 
+    required this.validator,
+    required this.labelText,
+    required this.onChanged,
+    this.focusNode,
+    this.textInputAction = TextInputAction.next,
+    this.inputFormatters, 
+    this.keyboardType, 
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       textInputAction: textInputAction,
@@ -35,7 +44,6 @@ class CustomTextFormField {
       onChanged: (value) {
         onChanged(value);
       },
-    );  
+    );   
   }
-
-}
+} 

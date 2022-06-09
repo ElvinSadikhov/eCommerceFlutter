@@ -82,7 +82,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                           textExpiry: 'MM/YY'
                         ), 
                         WidgetMethods.verticalSpace(25), 
-                        CustomTextFormField.getFormField(
+                        CustomTextFormField(
                           controller: this.cardHolderController,  
                           validator: (value) => Validator.validateHolderName(value), 
                           labelText: Strings.cardHolder, 
@@ -91,7 +91,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                           }
                         ),
                         WidgetMethods.verticalSpace(10), 
-                        CustomTextFormField.getFormField(
+                        CustomTextFormField(
                           controller: this.cardNumberController,  
                           validator: (value) => Validator.validateCardNumber(value), 
                           labelText: Strings.cardNumber,  
@@ -109,7 +109,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                           }
                         ),
                         WidgetMethods.verticalSpace(10),
-                        CustomTextFormField.getFormField(
+                        CustomTextFormField(
                           controller: this.cardExpiryDateController,  
                           validator: (value) => Validator.validateExpryDate(value), 
                           labelText: Strings.cardExpry, 
@@ -122,7 +122,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                           } 
                         ),
                         WidgetMethods.verticalSpace(10),
-                        CustomTextFormField.getFormField(
+                        CustomTextFormField(
                           controller: this.cardCvvController, 
                           textInputAction: TextInputAction.done, 
                           focusNode: this._cvvFocusNode,
