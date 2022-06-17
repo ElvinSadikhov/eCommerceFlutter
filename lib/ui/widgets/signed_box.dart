@@ -9,8 +9,7 @@ class SignedBox extends StatelessWidget {
   const SignedBox({ Key? key, required this.iconData }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    // return Text("pizdec");
+  Widget build(BuildContext context) { 
     return Card(  
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(5),
